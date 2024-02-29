@@ -33,7 +33,7 @@ export const Recipe = () => {
               <Spinner animation="border" variant="primary" size='xxl'/>
         </div>
        ):(
-        <div className='d-flex justify-content-center align-items-center '>
+        <div className='d-flex justify-content-center align-items-center m-auto  '>
         {data.map((item)=>(
            <>
             <div style={{padding:'5%',textAlign:'center'}}>

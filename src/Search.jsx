@@ -2,13 +2,11 @@ import axios from 'axios'
 import React, { useState } from 'react'
 import './App.css'
 import { Link } from 'react-router-dom'
-import Spinner from 'react-bootstrap/Spinner';
 
 export const Search = () => {
 
     const[data,setData]=useState([])
     const[strMeal,setstrMeal]=useState()
-    const [loading,setLoading]=useState(true)
 
     const handleChange=(event)=>{
         setstrMeal(event.target.value)
@@ -18,7 +16,6 @@ export const Search = () => {
         let response= await axios.get(`https://www.themealdb.com/api/json/v1/1/search.php?s=${strMeal}`)
         console.log(response.data.meals);
         setData(response.data.meals)
-        setLoading(false)
     }
   return (
     <div style={{padding:'5%'}}>
@@ -29,11 +26,6 @@ export const Search = () => {
         <button onClick={handleSubmit} className='but btn btn-primary w-75 '>search</button>
         </div>
         <br />
-        {loading ?(
-            <div className='d-flex justify-content-center align-items-center  '>
-                 <Spinner animation="border" variant="primary" size='xxl'/>
-            </div>
-        ):(
             <div className='d-flex justify-content-center  align-items-center '>
             {data &&
               <div>
@@ -49,7 +41,6 @@ export const Search = () => {
               </div>
             }
         </div>
-        )}   
     </div>
   )
 }

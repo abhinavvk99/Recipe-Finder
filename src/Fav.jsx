@@ -8,6 +8,11 @@ export const Fav = () => {
   const {favs} =useSelector(item=>item.fav)
   console.log(favs);
   const dispatch=useDispatch()
+
+  if (!favs || favs.length === 0) {
+    return <h2 style={{textAlign:'center',margin:'auto'}} className='cate p-5'>No favourites</h2>
+  }
+
   return (
     <div style={{padding:'2%'}}>
         <div className='d-flex flex-wrap justify-content-center align-items-center p-5  '>
